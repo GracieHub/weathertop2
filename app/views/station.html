@@ -1,0 +1,9 @@
+#{extends 'main.html' /}
+#{set title: "${station.name} Weather Station"/}
+#{menu id:"dashboard"/}
+
+<section class="ui segment">
+  #{station-panel station:station /}
+  #{reading-table readings:station.readings, station:station/}
+  #{add-reading-form station:station/}
+</section>

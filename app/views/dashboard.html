@@ -1,0 +1,9 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+#{set title:'WeatherTop Stations' /}
+#{menu id:"dashboard"/}
+
+<section class="ui segment">
+  #{station-list stations:stations/}
+  #{add-station-form /}
+</section>
