@@ -90,9 +90,9 @@
       "windBft": 1,
       "code": 803,
       "maxTemp": 23.07,
-      "getWindTrend": "big green sort up icon",
+      "getWindTrend": "big green angle double up icon",
       "getTempTrend": "",
-      "getPressureTrend": "big red sort down icon"
+      "getPressureTrend": "big red angle double down icon"
     },
     {
       "id": "93820950-0be2-11ec-94c8-5b999ed40c05",
@@ -183,9 +183,9 @@
       "tempC": 17.79,
       "degreesToCompass": "East",
       "windChill": "18.50",
-      "getWindTrend": "big green sort up icon",
+      "getWindTrend": "big green angle double up icon",
       "getTempTrend": "",
-      "getPressureTrend": "big red sort down icon"
+      "getPressureTrend": "big red angle double down icon"
     },
     {
       "id": "85031f30-0d28-11ec-bd41-a12b1a92ce23",
@@ -263,20 +263,20 @@
       ],
       "maxTemp": 18.13,
       "minTemp": 8.23,
-      "maxWindSpeed": 5.14,
+      "maxWindSpeed": 4.12,
       "minWindSpeed": 0.89,
       "maxPressure": 1025,
       "minPressure": 1018,
-      "code": 800,
-      "windBft": 1,
-      "tempF": "63.84",
-      "pressure": 1023,
-      "tempC": 17.69,
-      "degreesToCompass": "South",
-      "windChill": "18.45",
-      "weatherIcon": "http://openweathermap.org/img/w/01d.png",
-      "latestWeather": "Clear",
-      "getWindTrend": "",
+      "code": 801,
+      "windBft": -1,
+      "tempF": "63.10",
+      "pressure": 1024,
+      "tempC": 17.28,
+      "degreesToCompass": "South South East",
+      "windChill": "19.42",
+      "weatherIcon": "http://openweathermap.org/img/w/02d.png",
+      "latestWeather": "Clouds",
+      "getWindTrend": "big red angle double down icon",
       "getTempTrend": "",
       "getPressureTrend": ""
     },
@@ -358,9 +358,9 @@
       "tempC": 8.16,
       "degreesToCompass": "West South West",
       "windChill": "9.26",
-      "getWindTrend": "big red sort down icon",
+      "getWindTrend": "big red angle double down icon",
       "getTempTrend": "",
-      "getPressureTrend": "big green sort up icon"
+      "getPressureTrend": "big green angle double up icon"
     },
     {
       "id": "68ce97c0-0d2a-11ec-8316-7d5fdf44be8f",
@@ -440,9 +440,9 @@
       "tempC": 33.05,
       "degreesToCompass": "North",
       "windChill": "35.79",
-      "getWindTrend": "big green sort up icon",
-      "getTempTrend": "big green sort up icon",
-      "getPressureTrend": "big red sort down icon"
+      "getWindTrend": "big green angle double up icon",
+      "getTempTrend": "big green angle double up icon",
+      "getPressureTrend": "big red angle double down icon"
     },
     {
       "id": "ce5d20c0-0d2a-11ec-8316-7d5fdf44be8f",
@@ -522,7 +522,7 @@
       "tempC": 40.98,
       "degreesToCompass": "West South West",
       "windChill": "44.26",
-      "getWindTrend": "big red sort down icon",
+      "getWindTrend": "big red angle double down icon",
       "getTempTrend": "",
       "getPressureTrend": ""
     },
@@ -605,7 +605,7 @@
       "tempC": 27.69,
       "degreesToCompass": "West North West",
       "windChill": "29.80",
-      "getWindTrend": "big green sort up icon",
+      "getWindTrend": "big green angle double up icon",
       "getTempTrend": "",
       "getPressureTrend": ""
     }
