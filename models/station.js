@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const JsonStation = require('./json-station');
-const stationAnalytics = require("../utils/station-analytics")
+const stationAnalytics = require("../utils/station-analytics");
 const axios = require("axios");
 const oneCallRequest = `https://api.openweathermap.org/data/2.5/onecall?lat=52.160858&lon=-7.152420&units=metric&appid=2c9407bebff8d23f3e0083d7eb6fa6d6`;
 
@@ -49,7 +49,9 @@ const stationList = {
   },
   
   getUserStations(userid) {
-    return this.store.findBy(this.collection, { userid: userid });
+    let stations = this.store.findBy(this.collection, { userid: userid });
+    const orderedStations = _.sortBy(stations, o => o.title);
+    return orderedStations;
   },
   
   getReading(id, readingId) {

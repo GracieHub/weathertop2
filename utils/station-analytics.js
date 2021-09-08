@@ -24,8 +24,7 @@ const stationAnalytics = {
     station.tempC = latestReading.temperature;
     station.degreesToCompass = stationAnalytics.degreesToCompass(latestReading.windDirection);
     station.windChill = stationAnalytics.windChill(latestReading.temperature, latestReading.windSpeed).toFixed(2);
-//  station.windTrend = stationAnalytics.windTrend(latestReading.windSpeed);
-
+    station.getWindTrend = stationAnalytics.getWindTrend(station.readings);
     return latestReading;
 
     // station.tempTrend = stationAnalytics.tempTrend(station.readings);
@@ -399,33 +398,45 @@ const stationAnalytics = {
   },
 */
  
-  calcTrend(values) {
+
+
+  getTempTrend(readings) {
     let trend = 0;
+    if (readings.length > 2) {
+      let values = [readings[readings.length - 3].temperature, readings[readings.length - 2].temperature, readings[readings.length - 1].temperature];
+      trend = this.calcTrend(values);
+    }
+    return trend;
+  },
+
+  getWindTrend(readings) {
+    let trend = 0;
+    if (readings.length > 2) {
+      let values = [readings[readings.length - 3].windSpeed, readings[readings.length - 2].windSpeed, readings[readings.length - 1].windSpeed];
+      trend = this.calcTrend(values);
+    }
+    return trend;
+  },
+
+  getPressureTrend(readings) {
+    let trend = 0;
+    if (readings.length > 2) {
+      let values = [readings[readings.length - 3].pressure, readings[readings.length - 2].pressure, readings[readings.length - 1].pressure];
+      trend = this.calcTrend(values);
+    }
+    return trend;
+  },
+
+  calcTrend(values) {
+    let trend = "";
     if (values.length > 2) {
-      if (( values[2] > values[1] ) && (values[1] > values[0])) {
-        trend = 1;
-      } else if (( values[2] < values[1] ) && (values[1] < values[0])) {
-        trend = -1;
+      if ((parseInt(values[2]) > parseInt(values[1])) && (parseInt(values[1]) > parseInt(values[0]))){
+        trend = "big green angle double up icon";
+      } else if ((parseInt(values[2]) < parseInt(values[1]))&& (parseInt(values[1]) < parseInt(values[0]))) {
+        trend = "big red angle double down icon";
       }
     }
     return trend;
-  },
-    windTrend(readings) {
-    let trend = 0;
-    if (readings.size() > 2) {
-      const values = [readings.get(readings.size()-3).windSpeed, readings.get(readings.size()-2).windSpeed, readings.get(readings.size()-1).windSpeed];
-      trend = stationAnalytics.calcTrend(values);
-    }
-    return trend;
-  },
- /*   tempTrend(readings) {
-     trend = 0;
-    if (readings.size() > 2) {
-      values [] = {readings.get(readings.size()-3).temperature, readings.get(readings.size()-2).temperature, readings.get(readings.size()-1).temperature};
-      trend = calcTrend(values);
-    }
-    return trend;
   }
-*/
 };
 module.exports = stationAnalytics;

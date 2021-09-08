@@ -19,9 +19,6 @@ const dashboard = {
     const allStations = stationList.getAllStations();
     const station = stationList.getStation(stationId);
     const readingId = request.params.readingid;
-//    const latestReading = stationAnalytics.getLatestReading(station);
-
-//    const stations = stationList.getUserStations(loggedInUser.id)
 
       for (let i=0; i<allStations.length; i++) {
       const station = allStations[i];
@@ -34,6 +31,9 @@ const dashboard = {
       station.minPressure = stationAnalytics.getMinPressure(station);
       station.weatherIcon = stationAnalytics.weatherIcon(station);
       station.latestWeather = stationAnalytics.latestWeather(station);
+      station.getWindTrend = stationAnalytics.getWindTrend(station.readings);
+      station.getTempTrend = stationAnalytics.getTempTrend(station.readings);
+      station.getPressureTrend = stationAnalytics.getPressureTrend(station.readings);
     }
 
     const viewData = {

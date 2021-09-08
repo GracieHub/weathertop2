@@ -22,8 +22,8 @@
       <br>{{station.tempC}} C
       <br>{{station.tempF}} F <br>
       <br>Max: {{station.maxTemp}}
-      <br>Min: {{station.minTemp}}
-​
+      <br>Min: {{station.minTemp}} <i class="{{station.getTempTrend}}"></i>
+
     </span>
         </div>
         <div class="card">
@@ -33,9 +33,8 @@
       <br>{{station.codeToString}}
       <br>{{station.degreesToCompass}}
       <br>Feels like: {{station.windChill}}
-      <br>Max: {{station.maxWindSpeed}}
-      <br>Min: {{station.minWindSpeed}}
-
+      <br>Max: {{station.maxWindSpeed}} 
+      <br>Min: {{station.minWindSpeed}} <i class="{{station.getWindTrend}}"></i>
     </span>
         </div>
         <div class="card">
@@ -43,7 +42,7 @@
       <h2>Pressure <i class="large compass arrows icon" style="color:#a55a55"></i></h2>
       <br>{{station.pressure}} hpa</br>
       <br>Max: {{station.maxPressure}}
-      <br>Min: {{station.minPressure}}
+      <br>Min: {{station.minPressure}} <i class="{{station.getPressureTrend}}"></i>
 
     </span>
         </div>
