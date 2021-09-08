@@ -10,8 +10,10 @@ const station = {
   index(request, response) {
     const stationId = request.params.id;
     logger.debug('Station id = ', stationId);
+    const stationList = require('../models/station');
     const station = stationList.getStation(stationId);
     const readingId = request.params.readingid;
+    const readings = station.readings;
 
     
  if (station.readings.length > 0){
@@ -23,10 +25,12 @@ const station = {
     const maxWindSpeed = stationAnalytics.getMaxWindSpeed(station);
     const minPressure = stationAnalytics.getMinPressure(station);
     const maxPressure = stationAnalytics.getMaxPressure(station);
- //   const temperature = stationAnalytics.latestReading.temperature;
     const latestWeather = stationAnalytics.latestWeather(station);
     const weatherIcon = stationAnalytics.weatherIcon(station);
- 
+    const getWindTrend = stationAnalytics.getWindTrend(station);
+    const getTempTrend = stationAnalytics.getTempTrend(station);
+    const getPressureTrend = stationAnalytics.getPressureTrend(station);
+
     station.maxTemp = stationAnalytics.getMaxTemp(station);
     station.minTemp = stationAnalytics.getMinTemp(station);
     station.maxWindSpeed = stationAnalytics.getMaxWindSpeed(station);
@@ -35,8 +39,10 @@ const station = {
     station.minPressure = stationAnalytics.getMinPressure(station);
     station.weatherIcon = stationAnalytics.weatherIcon(station);
     station.latestWeather = stationAnalytics.latestWeather(station);
+    station.getWindTrend = stationAnalytics.getWindTrend(station.readings);
+    station.getTempTrend = stationAnalytics.getTempTrend(station.readings);
+    station.getPressureTrend = stationAnalytics.getPressureTrend(station.readings);
 
-      
     const viewData = {
       title: 'Station',
       station: stationList.getStation(stationId),
@@ -54,6 +60,9 @@ const station = {
       windBft: stationAnalytics.beafourt(latestReading.windSpeed),
       windChill: stationAnalytics.windChill
       (latestReading.temperature, latestReading.windSpeed).toFixed(2),
+      getWindTrend: getWindTrend,
+      getTempTrend: getTempTrend,
+      getPressureTrend: getPressureTrend
       
         
     };

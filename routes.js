@@ -26,9 +26,13 @@ router.get("/station/:id/deletereading/:readingid", station.deleteReading);
 router.post("/station/:id/addreport", station.addReport);
 router.post("/station/:id/addreading", station.addReading);
 
+router.get("/user", accounts.getUser);
+router.post("/user", accounts.updateUser);
 
 router.get("/reading/:id/editreading/:readingid", reading.index);
+router.post("/reading/:id/updatereading", station.addReading);
 router.post("/reading/:id/updatereading/:readingid", reading.update);
+
 
 module.exports = router;
 

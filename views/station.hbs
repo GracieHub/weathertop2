@@ -5,6 +5,28 @@
     {{station.title}}
   </h2>
     {{> stationsummary}}
+  <div class="ui segment" id="chart"></div>
+
+<script>
+const data = {
+    labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
+		"12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
+    datasets: [
+        {
+            name: "Temperature", type: "line",
+            values: [{{#each station.readings}}{{temperature}}, {{/each}}]
+        }
+    ]
+};
+  new frappe.Chart("#chart", {
+    title: "Trend Chart",
+    data: data,
+    type: "line",
+    height: 200,
+    colors: ["red", "blue"]
+  });
+  </script>
+  
     {{> listreadings}}
     {{> addreading}}
 </section>
@@ -15,4 +37,3 @@
 </form>
 <form class="ui stacked segment form" action="/station/{{station.id}}/addreading" method="POST">
 </form>
-{{> chart}}

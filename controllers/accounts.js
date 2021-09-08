@@ -54,6 +54,35 @@ const accounts = {
   getCurrentUser(request) {
     const userEmail = request.cookies.station;
     return userstation.getUserByEmail(userEmail);
+  },
+  
+  getUser(request, response){
+    const loggedInUser = accounts.getCurrentUser(request);
+    
+    const viewData = {
+      firstName: loggedInUser.firstName,
+      lastName: loggedInUser.lastName,
+      email: loggedInUser.email,
+      password: loggedInUser.password,
+    };
+    logger.info("about to render USER", viewData);
+    logger.info(`Logged in user is ${loggedInUser.firstName} ${loggedInUser.lastName}`);
+    response.render("user", viewData);
+  },
+  
+    updateUser(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    const user = loggedInUser.email;
+    const updatedUser = {
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
+      email: request.body.email,
+      password: request.body.password,
+    };
+    response.cookie("station", request.body.email);
+    logger.debug(`Updating User`);
+    userstation.updateUser(loggedInUser, updatedUser);
+    response.render("user", updatedUser);
   }
 };
 
