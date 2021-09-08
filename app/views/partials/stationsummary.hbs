@@ -1,0 +1,50 @@
+<div class="ui inverted blue segment">
+    <div class="ui five stackable inverted cards">
+        <div class="card">
+    <span class="content centre">
+    <h2> {{station.title}}<i class="large location arrow icon" style="color:	#7FFF00"></i></h2>
+      <br>          
+      <p>Lat: {{station.lat}}</p>
+      <p>Lng: {{station.lng}}</p>
+    </span>
+        </div>
+        <div class="card">
+    <span class="content centre">
+    <h2>Weather <img src="{{station.weatherIcon}}"></i></h2>
+    <br>{{station.latestWeather}}
+      
+
+    </span>
+        </div>
+        <div class="card">
+    <span class="content centre">
+      <h2>Temp <i class="large temperature low icon" style="color:#87ceeb"></i></h2>
+      <br>{{station.tempC}} C
+      <br>{{station.tempF}} F <br>
+      <br>Max: {{station.maxTemp}}
+      <br>Min: {{station.minTemp}} <i class="{{station.getTempTrend}}"></i>
+
+    </span>
+        </div>
+        <div class="card">
+    <span class="content centre">
+      <h2>Wind <i class=" large wind icon" style="color:#0000ff"></i></h2>
+      <br>{{station.windBft}} bft
+      <br>{{station.codeToString}}
+      <br>{{station.degreesToCompass}}
+      <br>Feels like: {{station.windChill}}
+      <br>Max: {{station.maxWindSpeed}} 
+      <br>Min: {{station.minWindSpeed}} <i class="{{station.getWindTrend}}"></i>
+    </span>
+        </div>
+        <div class="card">
+    <span class="content centre">
+      <h2>Pressure <i class="large compass arrows icon" style="color:#a55a55"></i></h2>
+      <br>{{station.pressure}} hpa</br>
+      <br>Max: {{station.maxPressure}}
+      <br>Min: {{station.minPressure}} <i class="{{station.getPressureTrend}}"></i>
+
+    </span>
+        </div>
+    </div>
+</div>
